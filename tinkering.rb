@@ -82,8 +82,8 @@ class UserInterface
     # What's to be deleted
     puts "What do you want to delete?"
     dele = get.chomp
+  end
 
-end
 end
 # Load JSON file
 data = File.read('session.json')
