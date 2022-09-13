@@ -83,7 +83,7 @@ class UserInterface
 
     # What's to be deleted
     puts "What do you want to delete?"
-    del = gets.chomp
+    dele = get.chomp
 
 end
 end
