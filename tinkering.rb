@@ -4,7 +4,7 @@
 require 'json'
 
 # Powering on PAT
-puts "| Personal Assistant Technology|"
+puts "| Personal Assistant Technology |"
 puts "To power on PAT simply say 'power on'"
 puts "To power down say 'exit'"
 
@@ -42,7 +42,9 @@ class UserInterface
     file = File.read('session.json')
     userdata = JSON.parse(file)
     puts "Greetings #{userdata['name']}. How might I be of assistance?"
-    puts "Type 'CREATE' to create a new list"
+    puts "To create a list: CREATE"
+    puts "To view your list: VIEW"
+    puts "To delete list entries: DELETE"
   end
 
   def self.createlist
@@ -73,8 +75,18 @@ class UserInterface
     end
   end
 
-end
+  def self.delete
+    # Under construction
+    # Method for deleting entries
+    file = File.read('todo.json')
+    todolist = JSON.parse(file)
 
+    # What's to be deleted
+    puts "What do you want to delete?"
+    del = gets.chomp
+
+end
+end
 # Load JSON file
 data = File.read('session.json')
 session_data = JSON.parse(data)
@@ -82,12 +94,18 @@ session_data = JSON.parse(data)
 # Calling introductions method for new users
 introductions if input == "POWER ON" and session_data['session'] == 0
 
+
 # Calling user menu for existing user
 UserInterface.mainmenu if input == "POWER ON" and session_data['session'] > 0
+
 select = gets.chomp.upcase
 
 if select == "CREATE"
-  UserInterface.createlist
+UserInterface.createlist
 elsif select == "VIEW"
-  UserInterface.viewlist
+UserInterface.viewlist
+elsif select == "DELETE"
+UserInterface.delete
+else
+puts "I'll be here when you need me."
 end
