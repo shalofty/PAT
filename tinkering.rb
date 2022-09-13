@@ -92,18 +92,22 @@ session_data = JSON.parse(data)
 # Calling introductions method for new users
 introductions if input == "POWER ON" and session_data['session'] == 0
 
-
 # Calling user menu for existing user
 UserInterface.mainmenu if input == "POWER ON" and session_data['session'] > 0
 
 select = gets.chomp.upcase
 
+# Calling methods based on user input
 if select == "CREATE"
 UserInterface.createlist
+
 elsif select == "VIEW"
 UserInterface.viewlist
+
 elsif select == "DELETE"
 UserInterface.delete
+
 else
 puts "...I'll be here when you need me."
+
 end
