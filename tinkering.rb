@@ -1,5 +1,3 @@
-# Simple To-Do list
-
 # Importing json package
 require 'json'
 
@@ -107,5 +105,5 @@ UserInterface.viewlist
 elsif select == "DELETE"
 UserInterface.delete
 else
-puts "I'll be here when you need me."
+puts "...I'll be here when you need me."
 end
