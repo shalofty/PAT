@@ -43,6 +43,7 @@ while prompt < 1
       puts "Main Menu"
       puts "To create a list: CREATE"
       puts "To view your list: VIEW"
+      puts "To add an item: ADD"
       puts "To delete list entries: DELETE\n"
     end
 
