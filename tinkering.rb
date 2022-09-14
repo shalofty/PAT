@@ -80,8 +80,19 @@ class UserInterface
     todolist = JSON.parse(file)
 
     # What's to be deleted
-    puts "What do you want to delete?"
-    dele = get.chomp
+    puts "Here is your current list:"
+    todolist.each do |key, value|
+      puts value
+    end
+    puts "What would you like to delete?"
+    dele = gets.chomp
+    todolist.delete_if { |key, value| value == dele }
+    puts "Entry successfully deleted."
+    puts "Here is your updated list:"
+    todolist.each do |key, value|
+      puts value
+    end
+    File.write('todo.json', JSON.dump(todolist))
   end
 
 end
