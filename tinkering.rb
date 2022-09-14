@@ -84,6 +84,21 @@ while prompt < 1
       puts "\n"
     end
 
+    def self.addItem
+      # Method to add item to list
+      file = File.read('todo.json')
+      todolist = JSON.parse(file)
+      puts "What would you like to add?"
+      entry = gets.chomp
+      todolist.store(:key, entry)
+      puts "Does this look correct?"
+      todolist.each do |key, value|
+        puts value
+      end
+      File.write('todo.json', JSON.dump(todolist))
+      puts "\n"
+    end
+
     def self.delete
       # Under construction
       # Method for deleting entries
@@ -122,15 +137,18 @@ while prompt < 1
 
   select = gets.chomp.upcase
 
-  # Calling methods based on user input
+  # Calling methods based on select input
   if select == "CREATE"
-  UserInterface.createlist
+    UserInterface.createlist
 
   elsif select == "VIEW"
-  UserInterface.viewlist
+    UserInterface.viewlist
+
+  elsif select == "ADD"
+    UserInterface.addItem
 
   elsif select == "DELETE"
-  UserInterface.delete
+    UserInterface.delete
 
   elsif select == "EXIT"
     prompt += 1
