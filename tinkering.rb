@@ -89,6 +89,8 @@ while prompt < 1
       puts "What would you like to add?"
       listlength = todolist.length
       entry = gets.chomp
+      # For this case specifically, the hash keys start at 1 because the initial entry is {"": ""}
+      # Therefore the value of any new key is equal to the length of the hash
       newkey = listlength
       todolist[newkey] = entry
       todolist.merge(todolist)
