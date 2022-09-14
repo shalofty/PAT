@@ -40,9 +40,6 @@ while prompt < 1
   class UserInterface
 
     def self.mainmenu
-      # Parse JSON file for name
-      file = File.read('session.json')
-      userdata = JSON.parse(file)
       puts "Main Menu"
       puts "To create a list: CREATE"
       puts "To view your list: VIEW"
@@ -60,10 +57,10 @@ while prompt < 1
       puts "\n"
 
       # Setting up a while loop to add things to list
-      i = 1
-      while i <= amount
+      key = 1
+      while key <= amount
         puts "Add to your list:"
-        todolist[i:] = gets.chomp
+        todolist[key] = gets.chomp
         File.write('todo.json', JSON.dump(todolist))
         i += 1
       end
@@ -89,8 +86,11 @@ while prompt < 1
       file = File.read('todo.json')
       todolist = JSON.parse(file)
       puts "What would you like to add?"
+      listlength = todolist.length
       entry = gets.chomp
-      todolist.store(:key, entry)
+      newkey = listlength
+      todolist[newkey] = entry
+      todolist.merge(todolist)
       puts "Does this look correct?"
       todolist.each do |key, value|
         puts value
