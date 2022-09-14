@@ -7,6 +7,8 @@ puts "To power on PAT simply say 'power on'"
 puts "To power down say 'exit'"
 
 input = gets.chomp.upcase
+
+# Encapsulate script within a while loop to keep software running until user prompts exit
 prompt = 0
 while prompt < 1
 
