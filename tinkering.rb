@@ -1,5 +1,5 @@
 # Importing phonebook
-require_relative 'phonebook'
+require_relative './phonebook.rb'
 
 # Importing json package
 require 'json'
@@ -158,7 +158,7 @@ while prompt < 1
     UserInterface.delete
 
   elsif select == "PB"
-    PBUI.pbmenu
+    PhoneBookUI.pbmenu
 
   elsif select == "EXIT"
     prompt += 1

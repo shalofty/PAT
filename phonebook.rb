@@ -1,11 +1,11 @@
 # PAT's phonebook
 
 # Importing tinkering
-require_relative 'tinkering'
+require_relative './tinkering'
 
 # This UI functions differently than the class UserInterface in tinkering.rb
 # Instead of using a while loop I call the pbmenu function at the end of other functions
-class PBUI
+class PhoneBookUI
   # Creating addcontact function
   def self.addcon
     file = File.read('phonebook.json')
@@ -60,9 +60,9 @@ class PBUI
       pbselect = gets.chomp.upcase
 
       if pbselect == "ADD"
-        PBUI.addcon
+        PhoneBookUI.addcon
       elsif pbselect == "VIEW"
-        PBUI.viewcon
+        PhoneBookUI.viewcon
       elsif pbselect == "RETURN"
         UserInterface.mainmenu
       else
