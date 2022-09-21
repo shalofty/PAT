@@ -1,3 +1,6 @@
+# Importing phonebook
+require_relative 'phonebook'
+
 # Importing json package
 require 'json'
 
@@ -44,6 +47,7 @@ while prompt < 1
       puts "To create a list: CREATE"
       puts "To view your list: VIEW"
       puts "To add an item: ADD"
+      puts "To view phonebook: PB"
       puts "To delete list entries: DELETE\n"
     end
 
@@ -82,7 +86,7 @@ while prompt < 1
       puts "\n"
     end
 
-    def self.addItem
+    def self.additem
       # Method to add item to list
       file = File.read('todo.json')
       todolist = JSON.parse(file)
@@ -148,10 +152,13 @@ while prompt < 1
     UserInterface.viewlist
 
   elsif select == "ADD"
-    UserInterface.addItem
+    UserInterface.additem
 
   elsif select == "DELETE"
     UserInterface.delete
+
+  elsif select == "PB"
+    PBUI.pbmenu
 
   elsif select == "EXIT"
     prompt += 1
